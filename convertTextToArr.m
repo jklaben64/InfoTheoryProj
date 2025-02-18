@@ -1,6 +1,6 @@
+function symbolArr = convertTextToArr(fileLocation)
 
-
-filetext = fileread(['Music/Disney/LetItGo.txt']);
+filetext = fileread([fileLocation]);
 
 symbolArr = '';
 symbolArrLen = 0;
