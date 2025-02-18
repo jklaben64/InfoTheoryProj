@@ -1,0 +1,73 @@
+ 
+
+^E-^D   ^C    ^C-A
+
+^E-^D-^C   ^C-A
+
+^E-^D        ^D   ^C   ^C-A
+
+^E-^D-^C   ^C-A
+
+^E-^D-^C   ^C-A
+
+G     ^E-^D  ^C  ^D-A  ^C-A
+
+ 
+
+^E-^G-^E-^G-^E
+
+A      ^C        A      ^E      A
+
+^E-^G  ^E-^D   ^C     A
+
+G   ^E-^D  ^C  ^C  A
+
+^E-^D-^C  ^C  A
+
+ 
+
+^E-^D-^C   ^C-A   B   ^C    ^D-B-A-G
+
+^E-^D-^C  ^C-A  ^E  ^D  ^C  ^C-A
+
+^E-^D     ^D-^C  ^C  ^C   A
+
+^E-^D-^C  ^C-A  ^E-^D  ^C  ^C-A
+
+G     ^E-^D-^C-^D   A  ^C  ^C   A
+
+ 
+
+^E-^G-^E   ^G-^E
+
+A      ^C     A    ^E-A
+
+A    A    ^E-^G-^E-^D-^C-A
+
+^E-^D-^C  ^C-A  A   ^E-^D  ^C   ^C-A
+
+A    ^E-^D   ^C     ^C
+
+A       B    ^C    ^D-B-A-G
+
+ 
+
+^D#  ^D# ^D# ^C  ^D#  ^F    ^F
+
+^D-^D  ^D   Bb  ^D  ^D# ^D#
+
+^D-^D# ^D#
+
+^C   ^D   ^D#  ^D# ^D
+
+Bb   ^C  ^D  ^F-^F  ^G-^F
+
+ 
+
+^A     ^B    *C-^C   ^D-^C  ^D-^C-A
+
+^A       ^B       *C-^C     ^D   ^C   ^E-^D
+
+^A   ^B    *C   ^C    ^D   ^C  ^D-^C-A
+
+^F    ^A   ^B   *C-^C  ^D   ^C-^E-^D
