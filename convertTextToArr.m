@@ -1,6 +1,6 @@
 function symbolArr = convertTextToArr(fileLocation)
 
-filetext = fileread([fileLocation]);
+filetext = fileread(fileLocation);
 
 symbolArr = '';
 symbolArrLen = 0;

@@ -1,6 +1,11 @@
-function songList = processTextFiles()
+function songList = processTextFiles(varargin)
     % Open a dialog to select a folder
-    folderPath = uigetdir('', 'Select a Folder');
+
+    if nargin == 0
+        folderPath = uigetdir('', 'Select a Folder');
+    else
+        folderPath = varargin{1};
+    end
 
     % Check if a folder was selected
     if folderPath == 0
