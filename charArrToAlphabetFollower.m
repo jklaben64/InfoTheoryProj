@@ -50,6 +50,10 @@ function [symbols, followers] = charArrToAlphabetFollower(inputStr, sequenceLeng
     [symbols, uniqueIdx] = unique(symbols, 'stable');
     followers = followers(uniqueIdx);
 
+    % Convert cell arrays to string arrays if needed
+    symbols = string(symbols);
+    followers = string(followers);
+
     % % Convert cell arrays to character arrays if needed
     % symbols = char(symbols);
     % followers = char(followers);

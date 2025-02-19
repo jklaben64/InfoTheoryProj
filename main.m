@@ -6,7 +6,7 @@
 % size?
 % do we ignore the last one since there is no xm, so we go until length-1-lengthofcorrelation?
 
-alphabetSize = 10;
+alphabetSize = 21;
 maxCorrelationLength = 8;
 folderLocation = 'C:\Users\naido\Documents\ChalmersCourses\0_TIF150_InformationTheory\Project\InfoTheoryProj\Music\AltRock';
 
@@ -18,7 +18,7 @@ numSongs = length(songNames);
 
 %% Correlation calculation
 
-correlation = zeros([1 maxCorrelationLength]);
+correlation = zeros([numSongs maxCorrelationLength]);
 
 for i = 1:numSongs
 
@@ -37,14 +37,16 @@ for i = 1:numSongs
 
     % Calculate K(1)
     px = symbolsCounts / sum(symbolsCounts);
-    correlation(1) = sum(px .* log(px) ./ log(sum(symbols)) ...
-        ./ sum(symbolsCounts)); % log base change and k1 calc
+    correlation(i,1) = sum(px .* log(px .* alphabetSize) ...
+        ./ log(sum(alphabetSize))); % log base change and k1 calc
 
     % Calculate K(2)
 
-    for j = 1:(songLength - (j-1))
+    singles = strlength(symbolSequences)==1;
+    singleSymbols = symbolSequences(singles);
+    singleFollowers = followers(singles);
 
-    end
+    px1 = strlength(singleFollowers) ./ sum(strlength(singleFollowers));
 
     % Calculate K(3) through K(maxCorrelationLength)
     for j = 3:maxCorrelationLength
