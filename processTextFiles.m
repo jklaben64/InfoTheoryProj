@@ -24,7 +24,7 @@ function songList = processTextFiles(varargin)
         [~, fileName, ~] = fileparts(files(k).name);
 
         % Call the existing function to convert text to array
-        charArray = convertTextToArr(fullfile(folderPath, files(k).name));
+        charArray = convertTextToDiffArr(fullfile(folderPath, files(k).name));
 
         % Store the result in the structure
         songList.(fileName) = charArray;

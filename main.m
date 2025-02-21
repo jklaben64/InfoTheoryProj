@@ -12,7 +12,7 @@ folderLocation = 'C:\Users\naido\Documents\ChalmersCourses\0_TIF150_InformationT
 
 %% Song text processing
 
-songs = processTextFiles(folderLocation);
+songs = processTextFiles();
 songNames = fields(songs);
 numSongs = length(songNames);
 
