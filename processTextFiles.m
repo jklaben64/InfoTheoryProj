@@ -1,5 +1,10 @@
 function songList = processTextFiles(varargin)
-    % Open a dialog to select a folder
+    % Checks all text files in a folder and processes them
+    %  into song struct output. This has 2 fields, the name
+    %  of the song and the char array of processed notes.
+
+    % Open a dialog to select a folder if no input
+    % If input, takes the folder path as folder to check
 
     if nargin == 0
         folderPath = uigetdir('', 'Select a Folder');

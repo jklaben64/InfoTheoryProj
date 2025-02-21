@@ -1,4 +1,7 @@
 function stepArr = convertTextToDiffArr(fileLocation)
+% outputs char array of the note difference in song as
+%  a positive change in note value. Encodes the value
+%  as a ASCII character array.
 
 filetext = fileread(fileLocation);
 

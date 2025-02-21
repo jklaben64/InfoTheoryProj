@@ -12,6 +12,8 @@ folderLocation = 'C:\Users\naido\Documents\ChalmersCourses\0_TIF150_InformationT
 
 %% Song text processing
 
+% Leave processTextFiles() empty for folder selection to pop up
+%  or add in the folderLocation variable with your selected folder path.
 songs = processTextFiles();
 songNames = fields(songs);
 numSongs = length(songNames);

@@ -1,4 +1,5 @@
 function symbolArr = convertTextToArr(fileLocation)
+% Outputs char array of the notes of the song
 
 filetext = fileread(fileLocation);
 

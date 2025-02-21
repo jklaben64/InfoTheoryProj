@@ -1,10 +1,17 @@
 function [symbols, followers] = charArrToAlphabetFollower(inputStr, sequenceLength)
+    % Takes in the char arr and the maximum correlation length
+    %  to check for. Outputs 2 arrays, one of the unique symbol
+    %  permutations present in the char arr and of the char that
+    %  follows the permutation in all locations in the char arr.
+    %  Ignores the end of the array permutations that do not 
+    %  have a char following it.
+
     % Validate input
     if sequenceLength < 1
         error('sequenceLength must be at least 1.');
     end
 
- % Initialize map to store sequences and their followers
+     % Initialize map to store sequences and their followers
     seqMap = containers.Map('KeyType', 'char', 'ValueType', 'any');
 
     % Loop through each sequence length from sequenceLength down to 1
