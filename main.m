@@ -79,7 +79,40 @@ for i = 1:numSongs
 
     % Calculate K(3) through K(maxCorrelationLength)
     for j = 3:maxCorrelationLength
+        % Calculate K(m)
+        %probability xm-1
+        xm1s = strlength(symbolSequences)==j-1;
+        xm1Symbols = symbolSequences(xm1s);
+        xm1Followers = followers(xm1s);
 
+        pxm1 = strlength(xm1Followers) ./ sum(strlength(xm1Followers));
+
+        %probability xm | x1...xm-1
+        % check xm1 arr, go through all the followers for each of the
+        % xm1 to calculate pxm given x1...xm-1
+        % Also do pxm given x2...xm-1. Search at each xm1 arr for the
+        % x2...xm1 symbol sequence, get the followers, and then calculate
+        % the conditional probability for each follower
+        % Calculate additional value to km after finding these.
+        km=0;
+        pxmGx1xm1 = zeros(size(xm1Symbols, 1), 1);
+        for x1xm1Loc = 1:size(xm1Symbols, 1)
+            x1xm1 = xm1Symbols(x1xm1Loc);
+            x2xm1 = extractAfter(x1xm1, 1);
+
+            % TODO: get followers for x1xm1
+            % TODO: get followers for x2xm1
+            [~, x1index] = ismember(x1, singleSymbols);
+            x1followers = singleFollowers(x1index);
+            % TODO: get pxm given x1...xm-1
+            % TODO: get pxm given x2...xm-1
+            px2Givenx1(symbol) = count(x1followers, x2) / strlength(x1followers);
+
+            [~, x2index] = ismember(x2, singleSymbols);
+            % TODO: get km additives
+            % k2 = k2 + px1(x1index) * px2Givenx1(symbol) * log(px2Givenx1(symbol)/px1(x2index))/log(alphabetSize);
+
+        end
     end
 
 
