@@ -58,7 +58,6 @@ for i = 1:numSongs
     px1x2 = strlength(doubleFollowers) ./ sum(strlength(doubleFollowers));
 
     %probability x2 | x1
-    k2 = 0;
     px2Givenx1 = zeros(size(doubleSymbols, 1), 1);
     for symbol = 1:size(doubleSymbols, 1)
         x1 = extract(doubleSymbols(symbol), 1);
@@ -68,13 +67,9 @@ for i = 1:numSongs
         x1followers = singleFollowers(x1index);
         px2Givenx1(symbol) = count(x1followers, x2) / strlength(x1followers);
 
-        [~, x2index] = ismember(x2, singleSymbols);
-        k2 = k2 + px1(x1index) * px2Givenx1(symbol) * log(px2Givenx1(symbol)/px1(x2index))/log(alphabetSize);
+        k2 = k2 + 
 
     end
-
-    correlation(i,2) = k2;
-
 
 
     % Calculate K(3) through K(maxCorrelationLength)
