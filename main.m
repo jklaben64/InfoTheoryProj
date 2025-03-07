@@ -7,7 +7,7 @@
 % do we ignore the last one since there is no xm, so we go until length-1-lengthofcorrelation?
 
 alphabetSize = 12; %alphabet size is 21 when using song notes directly
-maxCorrelationLength = 8;
+maxCorrelationLength = 25; % TODO: Discuss.
 folderLocation = 'C:\Users\naido\Documents\ChalmersCourses\0_TIF150_InformationTheory\Project\InfoTheoryProj\Music\AltRock';
 
 %% Song text processing
@@ -95,24 +95,39 @@ for i = 1:numSongs
         % the conditional probability for each follower
         % Calculate additional value to km after finding these.
         km=0;
-        pxmGx1xm1 = zeros(size(xm1Symbols, 1), 1);
+        % pxmGx1xm1 = zeros(size(xm1Symbols, 1), 1);
         for x1xm1Loc = 1:size(xm1Symbols, 1)
             x1xm1 = xm1Symbols(x1xm1Loc);
             x2xm1 = extractAfter(x1xm1, 1);
 
-            % TODO: get followers for x1xm1
-            % TODO: get followers for x2xm1
-            [~, x1index] = ismember(x1, singleSymbols);
-            x1followers = singleFollowers(x1index);
-            % TODO: get pxm given x1...xm-1
-            % TODO: get pxm given x2...xm-1
-            px2Givenx1(symbol) = count(x1followers, x2) / strlength(x1followers);
+            %  get followers for x1xm1
+            x1xm1Follower = xm1Followers(x1xm1Loc);
+            % get followers for x2xm1. Search for index of the symbol
+            % sequence matching x2xm1 from the full symbolSequences list,
+            % then find the followers of that index.
+            x2xm1Loc = find(x2xm1 == symbolSequences, 1);
+            x2xm1Follower = followers(x2xm1Loc);
+            % TODO: get pxm given x1...xm-1 and get pxm given x2...xm-1
+            sumXm = 0;
+            for s = 1:size(symbols)
+                symbol = symbols(s);
+                symbolCount = count(x1xm1Follower, symbol);
+                pxmGx1xm1 = symbolCount / strlength(x1xm1Follower);
+                symbolCount2 = count(x2xm1Follower, symbol);
+                pxmGx2xm1 = symbolCount2 / strlength(x2xm1Follower);
 
-            [~, x2index] = ismember(x2, singleSymbols);
-            % TODO: get km additives
-            % k2 = k2 + px1(x1index) * px2Givenx1(symbol) * log(px2Givenx1(symbol)/px1(x2index))/log(alphabetSize);
+                if (pxmGx2xm1 > 0) && (pxmGx1xm1 > 0)
+                    sumXm = sumXm + pxmGx1xm1 * log(pxmGx1xm1/pxmGx2xm1) ...
+                        / log(alphabetSize);
+                    a=1;
+                end
+            end
 
+            % get km additives
+            km = km + (pxm1(x1xm1Loc) * sumXm);
         end
+        % Save km for the song for the length of correlation.
+        correlation(i,j) = km;
     end
 
 
