@@ -1,16 +1,19 @@
+% Main
+% generates the information about the groups of songs. Can be saved as mat
+% files for post-processing of data. Use groupStatistics.m to get graphs of
+% this information. All other functions are used within this script.
+
 %% Parameters
 
-
 % Questions:
-% what is our log base? -> alphabet size of all possible? What is alphabet
-% size?
-% do we ignore the last one since there is no xm, so we go until length-1-lengthofcorrelation?
+% what is our log base? -> alphabet size of all possible
+% we ignore the last one since there is no xm, so we go until length-1-lengthofcorrelation
 
 clear all;
 close all;
 
 alphabetSize = 12; %alphabet size is 21 when using song notes directly
-maxCorrelationLength = 10; % TODO: Discuss.
+maxCorrelationLength = 10;
 folderLocation = 'C:\Users\naido\Documents\ChalmersCourses\0_TIF150_InformationTheory\Project\InfoTheoryProj\Music\AltRock';
 
 %% Song text processing

@@ -27,10 +27,10 @@ function [symbols, followers] = charArrToAlphabetFollower(inputStrArr, sequenceL
                     % Check if the sequence already exists in the map
                     if isKey(seqMap, seq)
                         % Append the new follower to the existing entry
-                        seqMap(seq) = [seqMap(seq), nextChar]; %#ok
+                        seqMap(seq) = [seqMap(seq), nextChar];
                     else
                         % If not found, add new sequence and follower
-                        seqMap(seq) = nextChar; %#ok
+                        seqMap(seq) = nextChar;
                     end
                 end
             end
