@@ -28,8 +28,9 @@ end
 
 figure();
 bar([k1Avg; k2Avg; k3Avg; k4Avg])
+set(gca,'XTickLabel',{'K1', 'K2', 'K3', 'K4'})
 legend(names)
-title('Correlation Information for k1 - k4')
+title('Average Correlation Information for k1 - k4')
 
     
 
@@ -39,7 +40,7 @@ title('Correlation Information for k1 - k4')
 figure();
 sumKAvgs = k2Avg + 2.*k3Avg + 3.*k4Avg;
 bar(names, sumKAvgs)
-title('Estimation of Correlation Complexity')
+title('Estimation of Average Correlation Complexity')
 
 % correlation information of greater than k4 for group correlation info
 % and compare between genres
@@ -69,13 +70,15 @@ end
 
 figure();
 bar([k1; k2; k3; k4; k5; k6; k7; k8; k9; k10])
+set(gca,'XTickLabel',{'K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9', 'K10'})
 legend(names)
 title('Correlation Information for groups of songs')
 
 % total correlation information (aka sum of km) for group correlation info
 % and compare between genres
-
-% plots:
-% Bar charts for comparison
+figure();
+sumK = k2 + 2.*k3 + 3.*k4 + 4.*k5 + 5.*k6 + 6.*k7 + 7.*k8 + 8.*k9 + 9.*k10;
+bar(names, sumK)
+title('Estimation of Correlation Complexity For Groups of Songs')
 
 % most popular "tunes" for each genre?
